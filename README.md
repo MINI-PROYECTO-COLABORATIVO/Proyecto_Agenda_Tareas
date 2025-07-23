@@ -2,6 +2,39 @@
 # AGENDA DE TAREAS - GRUPO 1
 
 ----------------------------
+
+## Instalación y Ejecución Local
+
+### Requisitos Previos
+- Python 3.8 o superior
+- Pip (gestor de paquetes de Python)
+
+### Instalación
+
+1. **Instala las dependencias**:
+   ```
+   pip install -r requirements.txt
+   ```
+
+2. **Configura la base de datos**:
+   ```
+   cd agenda
+   python manage.py migrate
+   ```
+
+3. **Recolecta archivos estaticos** (esto prueba la configuracion de WhiteNoise):
+   ```
+   python manage.py collectstatic --no-input
+   ```
+
+4. **Si se quiere ejecutar de manera local**:
+   ```
+   python manage.py runserver
+   ```
+
+Accede a la aplicación en tu navegador: http://localhost:8000
+
+----------------------------
 ## Roles del Equipo
 
 | Integrante           | Rol Scrum     |

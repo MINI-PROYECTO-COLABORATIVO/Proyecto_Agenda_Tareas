@@ -90,4 +90,9 @@ Botón de eliminar visible en el detalle o lista.
 Confirmación antes de borrar definitivamente.
 
 Prioridad: Baja
+
+INSTALACIONES:
+
+1. Python Django
+2. Bootstrap
 --------------------------------

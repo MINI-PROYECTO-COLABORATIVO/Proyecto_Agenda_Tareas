@@ -1,5 +1,5 @@
 -------------------------------------------
-#AGENDA DE TAREAS - GRUPO 1
+# AGENDA DE TAREAS - GRUPO 1
 
 ----------------------------
 ## Roles del Equipo

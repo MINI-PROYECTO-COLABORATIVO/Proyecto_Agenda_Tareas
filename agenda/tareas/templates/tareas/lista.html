@@ -120,11 +120,11 @@
                 <td>{{ tarea.titulo }}</td>
 
                 <td>
-                    {% if tarea.prioridad == 'baja' %}
+                    {% if tarea.prioridad == 1 %}
                         <span class="badge prioridad-baja">Baja</span>
-                    {% elif tarea.prioridad == 'media' %}
+                    {% elif tarea.prioridad == 2 %}
                         <span class="badge prioridad-media">Media</span>
-                    {% elif tarea.prioridad == 'alta' %}
+                    {% elif tarea.prioridad == 3 %}
                         <span class="badge prioridad-alta">Alta</span>
                     {% endif %}
                 </td>
@@ -134,7 +134,7 @@
                         <span class="badge estado-pendiente">Pendiente</span>
                     {% elif tarea.estado == 'en_progreso' %}
                         <span class="badge estado-progreso">En progreso</span>
-                    {% elif tarea.estado == 'completado' %}
+                    {% elif tarea.estado == 'completada' %}
                         <span class="badge estado-completado">Completado</span>
                     {% endif %}
                 </td>

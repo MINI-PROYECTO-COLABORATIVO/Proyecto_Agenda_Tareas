@@ -1,10 +1,15 @@
 ----------------------------
-INTEGRANTES:
--Tracy Moriano = Developer
--Junior = Scrum Master
--Alee Sayes = Developer
--Victor Bazan = Product Owner
--Jordan Rojas = Developer
+## Roles del Equipo
+
+| Integrante           | Rol Scrum     |
+|--------------------- |---------------|
+| **Junior Sulca**     | Scrum Master  |
+| **Victor Bazan**     | Product Owner |
+| **Tracy Moriano**    | Developer     |
+| **Jordan Rojas**     | Developer     |
+| **Alee Sayes**       | Developer     |
+| **Ronal Asencio**    | Developer     |
+-------------------------------------------------------------
 
 HISTORIAS DE USUARIOS:
 🧩 HU1 - Crear nueva tarea

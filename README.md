@@ -1,4 +1,5 @@
-AGENDE DE TAREAS - GRUPO 1
+-------------------------------------------
+#AGENDA DE TAREAS - GRUPO 1
 
 ----------------------------
 ## Roles del Equipo
@@ -13,7 +14,7 @@ AGENDE DE TAREAS - GRUPO 1
 | **Ronal Asencio**    | Developer     |
 -------------------------------------------------------------
 
-HISTORIAS DE USUARIOS:
+## HISTORIAS DE USUARIOS:
 🧩 HU1 - Crear nueva tarea
 Descripción:
 Como usuario, quiero registrar una tarea con título, prioridad, estado y fecha límite, para no olvidar lo que tengo que hacer.

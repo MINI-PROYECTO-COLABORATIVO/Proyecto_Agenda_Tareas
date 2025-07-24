@@ -3,47 +3,31 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{{ view.object.pk|yesno:"Editar Tarea,Nueva Tarea" }}</title>
+    <title>{{ view.object.pk|yesno:"Editar Tarea, Nueva Tarea" }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            padding: 20px;
         }
 
         .form-container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-            margin-top: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
 
         h2 {
+            color: #ffffff;
             font-weight: bold;
-            color: #343a40;
-            text-align: center;
-        }
-
-        label {
-            font-weight: 500;
-        }
-
-        .btn-primary {
-            background-color: #0d6efd;
-            border: none;
-        }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            border: none;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        form p {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
             margin-bottom: 1.5rem;
         }
 
@@ -53,41 +37,78 @@
         form textarea,
         form select {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            background-color: #f8f9fa;
-            transition: border-color 0.2s ease-in-out;
+            padding: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
         }
 
         form input:focus,
         form textarea:focus,
         form select:focus {
             outline: none;
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+            transform: translateY(-2px);
         }
 
-        form label {
+        label {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
             display: block;
-            margin-bottom: 0.5rem;
-            color: #495057;
-            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            border: none;
+            box-shadow: 0 4px 6px rgba(102, 126, 234, 0.25);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        form p {
+            margin-bottom: 1.5rem;
         }
 
         /* Estilo para mensajes de error del formulario */
         .errorlist {
-            color: #dc3545;
+            color: #fff;
+            background: rgba(239, 68, 68, 0.2);
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-top: 5px;
             list-style: none;
-            padding: 0;
-            margin: 0.5rem 0;
-            font-size: 0.875rem;
         }
 
-        /* Estilo para campos requeridos */
-        .required label:after {
-            content: " *";
-            color: #dc3545;
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 1.5rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>

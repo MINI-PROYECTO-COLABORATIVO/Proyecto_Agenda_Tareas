@@ -32,7 +32,7 @@
    python manage.py runserver
    ```
 
-Accede a la aplicación en tu navegador: http://localhost:8000
+Accede a la aplicación en tu navegador: https://proyecto-agenda-de-tareas.onrender.com
 
 ----------------------------
 ## Roles del Equipo

@@ -32,7 +32,7 @@
    python manage.py runserver
    ```
 
-Accede a la aplicación en tu navegador: https://proyecto-de-agenda-de-tareas.onrender.com
+Accede a la aplicación en tu navegador: https://agenda-tareas-dgnc.onrender.com
 
 ----------------------------
 ## Roles del Equipo

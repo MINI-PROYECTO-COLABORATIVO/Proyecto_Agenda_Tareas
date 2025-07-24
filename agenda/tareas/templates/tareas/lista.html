@@ -7,149 +7,224 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
 
         h1 {
+            color: #ffffff;
             font-weight: bold;
             display: flex;
             align-items: center;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         h1::before {
-            content: '🗒️';
+            content: '📋';
             font-size: 1.5em;
             margin-right: 10px;
         }
 
-        .btn-success {
-            background-color: #28a745;
+        .table {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 20px;
             border: none;
         }
 
-        .btn-success:hover {
-            background-color: #218838;
+        .table thead {
+            background-color: #4a5568;
+            color: white;
         }
 
         .table th, .table td {
             vertical-align: middle;
+            padding: 15px;
+            border-color: rgba(0,0,0,0.1);
         }
 
         .badge {
-            padding: 0.5em 0.7em;
-            font-size: 0.9em;
-            border-radius: 0.5rem;
+            padding: 0.5em 1em;
+            font-size: 0.85em;
+            border-radius: 30px;
+            font-weight: 500;
         }
 
         .prioridad-baja {
-            background-color: #d1ecf1;
-            color: #0c5460;
+            background-color: #9ae6b4;
+            color: #22543d;
         }
 
         .prioridad-media {
-            background-color: #fff3cd;
-            color: #856404;
+            background-color: #fbd38d;
+            color: #744210;
         }
 
         .prioridad-alta {
-            background-color: #f8d7da;
-            color: #721c24;
+            background-color: #feb2b2;
+            color: #742a2a;
         }
 
         .estado-pendiente {
-            background-color: #fce5cd;
-            color: #8a6d3b;
+            background-color: #e9d8fd;
+            color: #44337a;
         }
 
         .estado-progreso {
-            background-color: #d9edf7;
-            color: #31708f;
+            background-color: #bee3f8;
+            color: #2a4365;
         }
 
         .estado-completado {
-            background-color: #d4edda;
-            color: #155724;
+            background-color: #c6f6d5;
+            color: #22543d;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success {
+            background-color: #48bb78;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn-success:hover {
+            background-color: #38a169;
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background-color: #ed8936;
+            border: none;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #f56565;
+            border: none;
         }
 
         .btn-sm {
-            margin-right: 5px;
+            margin-right: 8px;
+            padding: 6px 12px;
         }
 
         .th-sub {
             display: block;
             font-size: 0.75rem;
             font-weight: normal;
-            color: #adb5bd;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: rgba(255,255,255,0.95);
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .table th, .table td {
+                padding: 10px;
+            }
+            
+            .btn-sm {
+                padding: 4px 8px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
-<body class="container mt-5">
-    <h1 class="mb-4">Agenda de Tareas de Arquitectura</h1>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Agenda de Tareas de Arquitectura</h1>
 
-    <a href="{% url 'crear_tarea' %}" class="btn btn-success mb-3">Nueva Tarea</a>
+        <a href="{% url 'crear_tarea' %}" class="btn btn-success mb-3">
+            <i class="fas fa-plus"></i> Nueva Tarea
+        </a>
 
-    <table class="table table-hover table-bordered">
-        <thead class="table-dark text-center">
-            <tr>
-                <th>
-                    Título
-                    <span class="th-sub">Nombre de la tarea</span>
-                </th>
-                <th>
-                    Prioridad
-                    <span class="th-sub">Nivel de urgencia</span>
-                </th>
-                <th>
-                    Estado
-                    <span class="th-sub">Etapa del proceso</span>
-                </th>
-                <th>
-                    Fecha límite
-                    <span class="th-sub">Plazo de entrega</span>
-                </th>
-                <th>
-                    Acciones
-                    <span class="th-sub">Editar o eliminar</span>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for tarea in object_list %}
-            <tr class="text-center">
-                <td>{{ tarea.titulo }}</td>
-
-                <td>
-                    {% if tarea.prioridad == 1 %}
-                        <span class="badge prioridad-baja">Baja</span>
-                    {% elif tarea.prioridad == 2 %}
-                        <span class="badge prioridad-media">Media</span>
-                    {% elif tarea.prioridad == 3 %}
-                        <span class="badge prioridad-alta">Alta</span>
-                    {% endif %}
-                </td>
-
-                <td>
-                    {% if tarea.estado == 'pendiente' %}
-                        <span class="badge estado-pendiente">Pendiente</span>
-                    {% elif tarea.estado == 'en_progreso' %}
-                        <span class="badge estado-progreso">En progreso</span>
-                    {% elif tarea.estado == 'completada' %}
-                        <span class="badge estado-completado">Completado</span>
-                    {% endif %}
-                </td>
-
-                <td>{{ tarea.fecha_limite|date:"F d, Y" }}</td>
-
-                <td>
-                    <a href="{% url 'editar_tarea' tarea.pk %}" class="btn btn-warning btn-sm">✏️ Editar</a>
-                    <a href="{% url 'eliminar_tarea' tarea.pk %}" class="btn btn-danger btn-sm">🗑️ Eliminar</a>
-                </td>
-            </tr>
-        {% empty %}
-            <tr><td colspan="5" class="text-center">No hay tareas aún.</td></tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table table-hover">
+            <thead class="text-center">
+                <tr>
+                    <th>
+                        Título
+                        <span class="th-sub">Nombre de la tarea</span>
+                    </th>
+                    <th>
+                        Prioridad
+                        <span class="th-sub">Nivel de urgencia</span>
+                    </th>
+                    <th>
+                        Estado
+                        <span class="th-sub">Etapa del proceso</span>
+                    </th>
+                    <th>
+                        Fecha límite
+                        <span class="th-sub">Plazo de entrega</span>
+                    </th>
+                    <th>
+                        Acciones
+                        <span class="th-sub">Editar o eliminar</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for tarea in object_list %}
+                <tr class="text-center">
+                    <td>{{ tarea.titulo }}</td>
+                    <td>
+                        {% if tarea.prioridad == 1 %}
+                            <span class="badge prioridad-baja">Baja</span>
+                        {% elif tarea.prioridad == 2 %}
+                            <span class="badge prioridad-media">Media</span>
+                        {% elif tarea.prioridad == 3 %}
+                            <span class="badge prioridad-alta">Alta</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if tarea.estado == 'pendiente' %}
+                            <span class="badge estado-pendiente">Pendiente</span>
+                        {% elif tarea.estado == 'en_progreso' %}
+                            <span class="badge estado-progreso">En progreso</span>
+                        {% elif tarea.estado == 'completada' %}
+                            <span class="badge estado-completado">Completado</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ tarea.fecha_limite|date:"F d, Y" }}</td>
+                    <td>
+                        <a href="{% url 'editar_tarea' tarea.pk %}" class="btn btn-warning btn-sm">✏️ Editar</a>
+                        <a href="{% url 'eliminar_tarea' tarea.pk %}" class="btn btn-danger btn-sm">🗑️ Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="5" class="text-center">No hay tareas aún.</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
